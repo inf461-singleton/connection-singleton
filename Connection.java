@@ -1,20 +1,22 @@
 public final class Connection{
     private String name;
     private String password;
+    private String code;
     private static Connection dbConnection;
 
-    private Connection(String name, String password){
+    private Connection(String name, String password, String code){
         this.name = name;
         this.password = password; 
+        this.code = code;
     }
 
     private Connection(){
         super();
     }
 
-    public static Connection createConnection(String n, String p){
+    public static Connection createConnection(String n, String p, String c){
         if (dbConnection == null){
-            dbConnection = new Connection(n,p);
+            dbConnection = new Connection(n,p,c);
         }
         return dbConnection;
     }
@@ -32,5 +34,9 @@ public final class Connection{
 
     public String getPassword(){
         return password;
+    }
+
+    public String getCode(){
+        return code;
     }
 }
